@@ -19,11 +19,19 @@ Creates a new widget to replace the Genesis eNews Widget to allow easier use of 
 1. Using the mailing list contact form code provided by your vendor, add the form action URL, the form field ID for the e-mail field and any hidden fields (not all services use them) into the widget options.
 1. Verify it works!
 
+Note: If you are using the first and last name fields, you will need to edit your styles.css. The fields use the ID subbox1 and subbox2 as some themes provide e-mail icons in the form field (which wouldn't make sense in every box).
+
 == Frequently Asked Questions ==
 
 = What services work with this plugin? =
 
-I've only tested this with MailChimp, but should work with most mailing list services. If you have tested this with other services, please [contact me](http://brandonkraft.com/contact/)
+MailChimp, Aweber and Constant Contact are confirmed to work, but it should work with almost all services. If you have tested this with other services, please [contact me](http://brandonkraft.com/contact/)
+
+= I need help! Where I can get it? =
+
+"Official" tutorials will be maintained on the [plugin's website](http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/).
+
+Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org/support/plugin/genesis-enews-extended) for this plugin.
 
 == Changelog ==
 
@@ -36,6 +44,9 @@ I've only tested this with MailChimp, but should work with most mailing list ser
 = 0.1.2 =
 * Modifies class name to work with more StudioPress themes.
 
+= 0.2 =
+* Adds first/last name fields (CSS ID subbox1 and subbox2)
+
 == Upgrade Notice ==
 
 = 0.1 =
@@ -46,3 +57,6 @@ Initial stable release. Please update from alpha now.
 
 = 0.1.2 =
 * Expands widget's usefulness to more StudioPress themes (Balance, etc).
+
+= 0.2 =
+* Adds first and last name fields.
