@@ -2,7 +2,7 @@
 Contributors: kraftbj
 Tags: genesis
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.4.2
 Stable tag: 0.1.2
 
 Creates a new widget to replace the Genesis eNews Widget to allow easier use of non-Feedburner mailing lists.
@@ -59,4 +59,4 @@ Initial stable release. Please update from alpha now.
 * Expands widget's usefulness to more StudioPress themes (Balance, etc).
 
 = 0.2 =
-* Adds first and last name fields.
+* Adds first and last name fields. (upcoming)
