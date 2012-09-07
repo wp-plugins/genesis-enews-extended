@@ -2,7 +2,7 @@
 Contributors: kraftbj
 Tags: genesis
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.4.2
 Stable tag: 0.1.2
 
 Creates a new widget to replace the Genesis eNews Widget to allow easier use of non-Feedburner mailing lists.
