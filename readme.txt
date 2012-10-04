@@ -23,8 +23,6 @@ Creates a new widget to easily add mailing lists to a Genesis website. Contiuati
 
 = What services work with this plugin? =
 
-= What services work with this plugin? =
-
 Feedburner, MailChimp, Aweber and Constant Contact are confirmed to work, but it should work with almost all services. If you have tested this with other services, please [contact me](http://brandonkraft.com/contact/)
 
 = I need help! Where I can get it? =
@@ -32,6 +30,10 @@ Feedburner, MailChimp, Aweber and Constant Contact are confirmed to work, but it
 "Official" tutorials will be maintained on the [plugin's website](http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/).
 
 Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org/support/plugin/genesis-enews-extended) for this plugin.
+
+== Screenshots ==
+1. Example of the plugin in use on a site running Streamline 2.0.
+2. Widget setting screen.
 
 == Changelog ==
 
