@@ -3,7 +3,7 @@
  * Plugin Name: Genesis eNews Extended
  * Plugin URI: http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/
  * Description: Replaces the Genesis eNews Widget to allow easier use of additional mailing services.
- * Version: 0.1.2
+ * Version: 0.1.3
  * Author: Brandon Kraft
  * Author URI: http://www.brandonkraft.com
  *
@@ -14,8 +14,10 @@
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
+ * Code based on original eNews Widget in the Genesis Framework by StudioPress - http://www.studiopress.com
+ *
  * @package BJGK_Genesis_enews_extended
- * @version 0.1.2
+ * @version 0.1.3
  * @author Brandon Kraft <bk@kraft.im>
  * @copyright Copyright (c) 2012, Brandon Kraft
  * @link http://www.brandonkraft.com
@@ -73,8 +75,15 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 				echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
 
 			echo wpautop( $instance['text'] ); // We run KSES on update
-
-			if ( ! empty( $instance['action'] ) ) : ?>
+			
+			if ( ! empty( $instance['id'] ) ) : ?>
+			<form id="subscribe" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo esc_js( $instance['id'] ); ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+				<input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="email" />
+				<input type="hidden" name="uri" value="<?php echo esc_attr( $instance['id'] ); ?>" />
+				<input type="hidden" name="loc" value="<?php echo esc_attr( get_locale() ); ?>" />
+				<input type="submit" value="<?php echo esc_attr( $instance['button_text'] ); ?>" id="subbutton" />
+			</form>
+			<?php elseif ( ! empty( $instance['action'] ) ) : ?>
 			<form id="subscribe" action="<?php echo esc_js( $instance['action'] ); ?>" method="post" target="_blank">
 				<input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="<?php echo esc_js( $instance['email-field'] ); ?>" />
 				<?php echo $instance['hidden_fields']; ?>
@@ -101,7 +110,7 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 
 		$new_instance['title'] = strip_tags( $new_instance['title'] );
 		$new_instance['text']  = wp_kses( $new_instance['text'], genesis_formatting_allowedtags() );
-		/** $new_instance['hidden_fields'] = strip_tags( $new_instance['hidden_fields'], "input" ); */
+		$new_instance['hidden_fields'] = strip_tags( $new_instance['hidden_fields'], "<input>" );
 		return $new_instance;
 
 	}
@@ -118,40 +127,46 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 
 ?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'genesis' ); ?>:</label><br />
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'enews-ext' ); ?>:</label><br />
 			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text To Show', 'genesis' ); ?>:</label><br />
+			<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text To Show', 'enews-ext' ); ?>:</label><br />
 			<textarea id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" class="widefat" rows="6" cols="4"><?php echo htmlspecialchars( $instance['text'] ); ?></textarea>
 		</p>
-
+		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
 		<p>
-			<label for="<?php echo $this->get_field_id( 'action' ); ?>"><?php _e( 'Form Action', 'genesis' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Google/Feedburner ID', 'enews-ext' ); ?>:</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'id' ); ?>" name="<?php echo $this->get_field_name( 'id' ); ?>" value="<?php echo esc_attr( $instance['id'] ); ?>" class="widefat" /><br />
+			<small><?php _e( 'Entering your Feedburner ID here will deactivate the custom options below.', 'enews-ext' ); ?></small>
+		</p>
+		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
+		<p>
+			<label for="<?php echo $this->get_field_id( 'action' ); ?>"><?php _e( 'Form Action', 'enews-ext' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'action' ); ?>" name="<?php echo $this->get_field_name( 'action' ); ?>" value="<?php echo esc_attr( $instance['action'] ); ?>" class="widefat" />
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id( 'email-field' ); ?>"><?php _e( 'E-Mail Field', 'genesis' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'email-field' ); ?>"><?php _e( 'E-Mail Field', 'enews-ext' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'email-field' ); ?>" name="<?php echo $this->get_field_name( 'email-field' ); ?>" value="<?php echo esc_attr( $instance['email-field'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'hidden_fields' ); ?>"><?php _e( 'Hidden Fields', 'genesis' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'hidden_fields' ); ?>"><?php _e( 'Hidden Fields', 'enews-ext' ); ?>:</label>
 			<textarea id="<?php echo $this->get_field_id( 'hidden_fields' ); ?>" name="<?php echo $this->get_field_name( 'hidden_fields' ); ?>" class="widefat"><?php echo esc_attr( $instance['hidden_fields'] ); ?></textarea>
-			<br><small>Not all services use hidden fields.</small>
+			<br><small><?php _e( 'Not all services use hidden fields.', 'enews-ext'); ?></small>
 		</p>
-		
+		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
 		<p>
-			<?php $input_text = empty( $instance['input_text'] ) ? __( 'Enter your email address...', 'genesis' ) : $instance['input_text']; ?>
-			<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Input Text', 'genesis' ); ?>:</label>
+			<?php $input_text = empty( $instance['input_text'] ) ? __( 'Enter your email address...', 'enews-ext' ) : $instance['input_text']; ?>
+			<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Input Text', 'enews-ext' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'input_text' ); ?>" name="<?php echo $this->get_field_name( 'input_text' ); ?>" value="<?php echo esc_attr( $input_text ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<?php $button_text = empty( $instance['button_text'] ) ? __( 'Go', 'genesis' ) : $instance['button_text']; ?>
-			<label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text', 'genesis' ); ?>:</label>
+			<?php $button_text = empty( $instance['button_text'] ) ? __( 'Go', 'enews-ext' ) : $instance['button_text']; ?>
+			<label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text', 'enews-ext' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" value="<?php echo esc_attr( $button_text ); ?>" class="widefat" />
 		</p>
 
