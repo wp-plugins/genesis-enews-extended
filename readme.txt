@@ -1,5 +1,5 @@
 === Genesis eNews Extended ===
-Contributors: kraftbj
+Contributors: kraftbj, coffeaweb
 Tags: genesis
 Requires at least: 3.0
 Tested up to: 3.5
