@@ -4,7 +4,7 @@ Donate link: http://www.brandonkraft.com/donate/
 Tags: genesis
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 0.1.6
+Stable tag: 0.2.0
 
 Creates a new widget to easily add mailing lists integration to a Genesis website. Works with FeedBurner, MailChimp, AWeber, FeedBlitz and more.
 
@@ -16,7 +16,7 @@ Creates a new widget to easily add mailing lists to a Genesis website. Recommend
 
 1. Upload contents of the directory to /wp-content/plugins/ (or use the automatic installer)
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. In Appearance->Widgerts, add Genesis eNews Extended widget to any sidebar.
+1. In Appearance->Widgets, add Genesis eNews Extended widget to any sidebar.
 1. Using the mailing list contact form code provided by your vendor, add the form action URL, the form field ID for the e-mail field and any hidden fields (not all services use them) into the widget options.
 1. If using name fields, read the [plugin's tutorial website](http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/tutorials).
 1. Verify it works!
@@ -50,6 +50,12 @@ Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org
 2. Widget setting screen.
 
 == Changelog ==
+
+= 0.2.0 =
+* Various code enhancements to improve performance and adhere better to WP standards (props to [Gary Jones](http://garyjones.co.uk/)) 
+* Adds Spanish translation (props to [Ryan Sullivan](http://www.wpsitecare.com/))
+* Adds Italian translation (props to [Marco Galasso](http://neatandplain.com/))
+* Adds Slovak translation (props to [Branco Radenovich](http://webhostinggeeks.com/user-reviews/))
 
 = 0.1.6 =
 * Makes available first and last name fields.
@@ -96,3 +102,6 @@ Adds option to open confirmation screen in same tab.
 
 = 0.1.6 =
 Adds first and last name fields. Check instructions before usage.
+
+= 0.2.0 =
+Code enhancements and adds Spanish, Italian, and Slovak translations.
