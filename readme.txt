@@ -51,6 +51,9 @@ Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org
 
 == Changelog ==
 
+= 0.3.0 =
+* Adds ability to edit "First Name" and "Last Name" displayed on front-end.
+
 = 0.2.0 =
 * Various code enhancements to improve performance and adhere better to WP standards (props to [Gary Jones](http://garyjones.co.uk/))
 * Adds Spanish translation (props to [Ryan Sullivan](http://www.wpsitecare.com/))
@@ -105,3 +108,6 @@ Adds first and last name fields. Check instructions before usage.
 
 = 0.2.0 =
 Code enhancements and adds Spanish, Italian, and Slovak translations.
+
+= 0.3.0 =
+Enable changes to first name and last name text displayed on site.
