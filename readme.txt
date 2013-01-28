@@ -51,6 +51,9 @@ Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed issue resulting in deactivation on upgrade.
+
 = 1.0.0 =
 * Adds ability to edit "First Name" and "Last Name" displayed on front-end.
 * Moves class function out of primary plugin file, renames primary plugin file, and other code cleanup.
