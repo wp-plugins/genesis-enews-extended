@@ -2,50 +2,14 @@
 /**
  * Genesis eNews Extended
  *
- * @package BJGK\Genesis_enews_extended
- * @version 0.3.0-beta1
- * @author Brandon Kraft <public@brandonkraft.com>
+ * @package   BJGK\Genesis_enews_extended
+ * @version   1.0.0
+ * @author    Brandon Kraft <public@brandonkraft.com>
+ * @link      http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/
  * @copyright Copyright (c) 2012, Brandon Kraft
- * @link http://www.brandonkraft.com/
- * @license GPL-2.0+
- *
- * @wordpress-plugin
- * Plugin Name: Genesis eNews Extended
- * Plugin URI: http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/
- * Description: Replaces the Genesis eNews Widget to allow easier use of additional mailing services.
- * Version: 0.3.0-beta1
- * Author: Brandon Kraft
- * Author URI: http://www.brandonkraft.com
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- * Text Domain: genesis-enews-extended
- * Domain Path: /languages/
+ * @license   GPL-2.0+
  */
- /*
- * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
- * General Public License version 2, as published by the Free Software Foundation.  You may NOT assume
- * that you can use any other version of the GPL.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
- * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * Code based on original eNews Widget in the Genesis Framework by StudioPress - http://www.studiopress.com
- */
-
-add_action( 'init', 'bjgk_genesis_enews_load_translations' );
-/**
- * Load the textdomain / translations for the plugin.
- *
- * @since 0.1.4
- */
-function bjgk_genesis_enews_load_translations() {
-	$domain = 'genesis-enews-extended';
-	// The "plugin_locale" filter is also used in load_plugin_textdomain()
-	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-	load_textdomain( 'genesis-enews-extended', WP_LANG_DIR . '/genesis-enews-extended/' . $domain . '-' . $locale . '.mo' );
-	load_plugin_textdomain( 'genesis-enews-extended', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-
+ 
 /**
  * Main plugin class.
  *
@@ -171,85 +135,75 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'genesis-enews-extended' ); ?>:</label><br />
-			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title', 'genesis-enews-extended' ); ?>:</label><br />
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text To Show', 'genesis-enews-extended' ); ?>:</label><br />
-			<textarea id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" class="widefat" rows="6" cols="4"><?php echo htmlspecialchars( $instance['text'] ); ?></textarea>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php _e( 'Text To Show', 'genesis-enews-extended' ); ?>:</label><br />
+			<textarea id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" class="widefat" rows="6" cols="4"><?php echo htmlspecialchars( $instance['text'] ); ?></textarea>
 		</p>
 		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
 		<p>
-			<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Google/Feedburner ID', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'id' ); ?>" name="<?php echo $this->get_field_name( 'id' ); ?>" value="<?php echo esc_attr( $instance['id'] ); ?>" class="widefat" /><br />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>"><?php _e( 'Google/Feedburner ID', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'id' ) ); ?>" value="<?php echo esc_attr( $instance['id'] ); ?>" class="widefat" /><br />
 			<small><?php _e( 'Entering your Feedburner ID here will deactivate the custom options below.', 'genesis-enews-extended' ); ?></small>
 		</p>
 		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
 		<p>
-			<label for="<?php echo $this->get_field_id( 'action' ); ?>"><?php _e( 'Form Action', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'action' ); ?>" name="<?php echo $this->get_field_name( 'action' ); ?>" value="<?php echo esc_attr( $instance['action'] ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'action' ) ); ?>"><?php _e( 'Form Action', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'action' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'action' ) ); ?>" value="<?php echo esc_attr( $instance['action'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'email-field' ); ?>"><?php _e( 'E-Mail Field', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'email-field' ); ?>" name="<?php echo $this->get_field_name( 'email-field' ); ?>" value="<?php echo esc_attr( $instance['email-field'] ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'email-field' ) ); ?>"><?php _e( 'E-Mail Field', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'email-field' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'email-field' ) ); ?>" value="<?php echo esc_attr( $instance['email-field'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'fname-field' ); ?>"><?php _e( 'First Name Field', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'fname-field' ); ?>" name="<?php echo $this->get_field_name( 'fname-field' ); ?>" value="<?php echo esc_attr( $instance['fname-field'] ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'fname-field' ) ); ?>"><?php _e( 'First Name Field', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'fname-field' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'fname-field' ) ); ?>" value="<?php echo esc_attr( $instance['fname-field'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'lname-field' ); ?>"><?php _e( 'Last Name Field', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'lname-field' ); ?>" name="<?php echo $this->get_field_name( 'lname-field' ); ?>" value="<?php echo esc_attr( $instance['lname-field'] ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'lname-field' ) ); ?>"><?php _e( 'Last Name Field', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'lname-field' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'lname-field' ) ); ?>" value="<?php echo esc_attr( $instance['lname-field'] ); ?>" class="widefat" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'hidden_fields' ); ?>"><?php _e( 'Hidden Fields', 'genesis-enews-extended' ); ?>:</label>
-			<textarea id="<?php echo $this->get_field_id( 'hidden_fields' ); ?>" name="<?php echo $this->get_field_name( 'hidden_fields' ); ?>" class="widefat"><?php echo esc_attr( $instance['hidden_fields'] ); ?></textarea>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'hidden_fields' ) ); ?>"><?php _e( 'Hidden Fields', 'genesis-enews-extended' ); ?>:</label>
+			<textarea id="<?php echo esc_attr( $this->get_field_id( 'hidden_fields' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'hidden_fields' ) ); ?>" class="widefat"><?php echo esc_attr( $instance['hidden_fields'] ); ?></textarea>
 			<br><small><?php _e( 'Not all services use hidden fields.', 'genesis-enews-extended'); ?></small>
 		</p>
 
 		<p>
-			<input id="<?php echo $this->get_field_id( 'open_same_window' ); ?>" type="checkbox" name="<?php echo $this->get_field_name( 'open_same_window' ); ?>" value="1" <?php checked( $instance['open_same_window'] ); ?>/>
-			<label for="<?php echo $this->get_field_id( 'open_same_window' ); ?>"><?php _e( 'Open confirmation page in same window?', 'genesis-enews-extended' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'open_same_window' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'open_same_window' ) ); ?>" value="1" <?php checked( $instance['open_same_window'] ); ?>/>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'open_same_window' ) ); ?>"><?php _e( 'Open confirmation page in same window?', 'genesis-enews-extended' ); ?></label>
 		</p>
 		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
 		<p>
 			<?php $fname_text = empty( $instance['fname_text'] ) ? __( 'First Name...', 'genesis-enews-extended' ) : $instance['fname_text']; ?>
-			<label for="<?php echo $this->get_field_id( 'fname_text' ); ?>"><?php _e( 'First Name Input Text', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'fname_text' ); ?>" name="<?php echo $this->get_field_name( 'fname_text' ); ?>" value="<?php echo esc_attr( $fname_text ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'fname_text' ) ); ?>"><?php _e( 'First Name Input Text', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'fname_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'fname_text' ) ); ?>" value="<?php echo esc_attr( $fname_text ); ?>" class="widefat" />
 		</p>
 		<p>
 			<?php $lname_text = empty( $instance['lname_text'] ) ? __( 'Last Name...', 'genesis-enews-extended' ) : $instance['lname_text']; ?>
-			<label for="<?php echo $this->get_field_id( 'lname_text' ); ?>"><?php _e( 'Last Name Input Text', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'lname_text' ); ?>" name="<?php echo $this->get_field_name( 'lname_text' ); ?>" value="<?php echo esc_attr( $lname_text ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'lname_text' ) ); ?>"><?php _e( 'Last Name Input Text', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'lname_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'lname_text' ) ); ?>" value="<?php echo esc_attr( $lname_text ); ?>" class="widefat" />
 		</p>
 		<p>
 			<?php $input_text = empty( $instance['input_text'] ) ? __( 'Enter your email address...', 'genesis-enews-extended' ) : $instance['input_text']; ?>
-			<label for="<?php echo $this->get_field_id( 'input_text' ); ?>"><?php _e( 'E-Mail Input Text', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'input_text' ); ?>" name="<?php echo $this->get_field_name( 'input_text' ); ?>" value="<?php echo esc_attr( $input_text ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'input_text' ) ); ?>"><?php _e( 'E-Mail Input Text', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'input_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'input_text' ) ); ?>" value="<?php echo esc_attr( $input_text ); ?>" class="widefat" />
 		</p>
 
 		<p>
 			<?php $button_text = empty( $instance['button_text'] ) ? __( 'Go', 'genesis-enews-extended' ) : $instance['button_text']; ?>
-			<label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text', 'genesis-enews-extended' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" value="<?php echo esc_attr( $button_text ); ?>" class="widefat" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'button_text' ) ); ?>"><?php _e( 'Button Text', 'genesis-enews-extended' ); ?>:</label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_text' ) ); ?>" value="<?php echo esc_attr( $button_text ); ?>" class="widefat" />
 		</p>
 
 	<?php
 	}
 
-}
-
-add_action( 'widgets_init', 'bjgk_genesis_enews_load_widgets' );
-/**
- * Register widget.
- *
- * @since 0.1.0
- */
-function bjgk_genesis_enews_load_widgets() {
-	register_widget( 'BJGK_Genesis_eNews_Extended' );
 }

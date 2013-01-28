@@ -2,83 +2,102 @@
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Genesis eNews Extended\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/genesis-enews-extended\n"
-"POT-Creation-Date: 2013-01-10 22:42:34+00:00\n"
+"POT-Creation-Date: 2013-01-27 13:12-0600\n"
+"PO-Revision-Date: 2013-01-27 13:17-0600\n"
+"Last-Translator: Brandon Kraft <public@brandonkraft.com>\n"
+"Language-Team: \n"
+"Language: Italiano\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-01-16 12:19+0100\n"
-"Last-Translator: Marco <marco@neatandplain.com>\n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.5.4\n"
-"Language: Italiano\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: plugin.php:67
+#: ../class-bjgk-genesis-enews-extended.php:39
 msgid "Displays subscribe form"
 msgstr "Mostra il modulo d'iscrizione"
 
-#: plugin.php:70
+#: ../class-bjgk-genesis-enews-extended.php:42
 msgid "Genesis - eNews Extended"
 msgstr "Genesis - eNews Extended"
 
-#: plugin.php:147
+#: ../class-bjgk-genesis-enews-extended.php:127
 msgid "Title"
 msgstr "Titolo"
 
-#: plugin.php:152
+#: ../class-bjgk-genesis-enews-extended.php:132
 msgid "Text To Show"
 msgstr "Testo da mostrare"
 
-#: plugin.php:157
+#: ../class-bjgk-genesis-enews-extended.php:137
 msgid "Google/Feedburner ID"
 msgstr "Google/Feedburner ID"
 
-#: plugin.php:159
+#: ../class-bjgk-genesis-enews-extended.php:139
 msgid ""
 "Entering your Feedburner ID here will deactivate the custom options below."
 msgstr "Linserimento del Feedburner ID disattiverà le opzioni non necessarie."
 
-#: plugin.php:163
+#: ../class-bjgk-genesis-enews-extended.php:143
 msgid "Form Action"
 msgstr "Azione del modulo"
 
-#: plugin.php:168
+#: ../class-bjgk-genesis-enews-extended.php:148
 msgid "E-Mail Field"
 msgstr "Campo E-Mail"
 
-#: plugin.php:173
+#: ../class-bjgk-genesis-enews-extended.php:153
 msgid "First Name Field"
 msgstr "Campo Nome"
 
-#: plugin.php:178
+#: ../class-bjgk-genesis-enews-extended.php:158
 msgid "Last Name Field"
 msgstr "Campo Cognome"
 
-#: plugin.php:183
+#: ../class-bjgk-genesis-enews-extended.php:163
 msgid "Hidden Fields"
 msgstr "Campi nascosti"
 
-#: plugin.php:185
+#: ../class-bjgk-genesis-enews-extended.php:165
 msgid "Not all services use hidden fields."
 msgstr "Non tutti i servizi utilizzano i campi nascosti."
 
-#: plugin.php:190
+#: ../class-bjgk-genesis-enews-extended.php:170
 msgid "Open confirmation page in same window?"
 msgstr "Apri la pagina di conferma nella stessa finestra?"
 
-#: plugin.php:194
+#: ../class-bjgk-genesis-enews-extended.php:174
+msgid "First Name..."
+msgstr "Nome…"
+
+#: ../class-bjgk-genesis-enews-extended.php:175
+msgid "First Name Input Text"
+msgstr "Nome di testo di input"
+
+#: ../class-bjgk-genesis-enews-extended.php:179
+msgid "Last Name..."
+msgstr "Cognome…"
+
+#: ../class-bjgk-genesis-enews-extended.php:180
+msgid "Last Name Input Text"
+msgstr "Cognome di testo di input"
+
+#: ../class-bjgk-genesis-enews-extended.php:184
 msgid "Enter your email address..."
 msgstr "Inserisci il tuo indirizzo email…"
 
-#: plugin.php:195
-msgid "Input Text"
-msgstr "Testo per l'input"
+#: ../class-bjgk-genesis-enews-extended.php:185
+msgid "E-Mail Input Text"
+msgstr "E-Mail di testo di input"
 
-#: plugin.php:200
+#: ../class-bjgk-genesis-enews-extended.php:190
 msgid "Go"
 msgstr "Vai"
 
-#: plugin.php:201
+#: ../class-bjgk-genesis-enews-extended.php:191
 msgid "Button Text"
 msgstr "Testo del bottone"
