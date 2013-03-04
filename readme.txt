@@ -4,7 +4,7 @@ Donate link: http://www.brandonkraft.com/donate/
 Tags: genesis, genesiswp, mailchimp, aweber, studiopress, newsletter, subscribe
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 Creates a new widget to easily add mailing lists integration to a Genesis website. Works with FeedBurner, MailChimp, AWeber, FeedBlitz and more.
 
@@ -51,6 +51,10 @@ Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org
 
 == Changelog ==
 
+= 1.1.1 =
+* Fixed bug with incorrect escaping function used in first and last name fields.
+* Fixed bug with some translations not working.
+
 = 1.1.0 =
 * Allows for more HTML tags to be used in Text to Show field. Dropped genesis_allowed_tags in favor or wp_kses_post. Props to [John Levandowski](http://wpselect.com/).
 * eNews Extended now compatible with Catalyst theme (Catalyst not officially supported).
@@ -74,8 +78,8 @@ Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org
 * Adds option to open confirmation window in same tab.
 
 = 0.1.4 =
-* Adds l18n support for other languages (thanks David Decker!)
-* Adds German translation (thanks David Decker!)
+* Adds l18n support for other languages, props to [David Decker!](http://deckerweb.de/)
+* Adds German translation , props to [David Decker!](http://deckerweb.de/)
 
 = 0.1.3 =
 * Adds Feedburner support in anticipation of Genesis 1.9
@@ -127,3 +131,6 @@ Verify plugin is active after update.
 
 = 1.1.0 =
 Allows images in the "Text to Show" area.
+
+= 1.1.1 =
+Fixed bug in onclick clearing of first and last name fields and translations that were not loading.
