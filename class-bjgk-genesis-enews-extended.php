@@ -3,7 +3,7 @@
  * Genesis eNews Extended
  *
  * @package   BJGK\Genesis_enews_extended
- * @version   1.1.2
+ * @version   1.2.0
  * @author    Brandon Kraft <public@brandonkraft.com>
  * @link      http://www.brandonkraft.com/contrib/plugins/genesis-enews-extended/
  * @copyright Copyright (c) 2012, Brandon Kraft
@@ -34,6 +34,7 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 		$this->defaults = array(
 			'title'				=> '',
 			'text'				=> '',
+			'after_text'		=> '',
 			'hidden_fields'		=> '',
 			'open_same_window'	=> 0,
 			'fname-field'		=> '',
@@ -42,6 +43,8 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 			'fname_text'		=> '',
 			'lname_text'		=> '',
 			'button_text'		=> '',
+			'id'				=> '',
+			'email-field'		=> '',
 			'action'			=> '',
 		);
 
@@ -83,21 +86,22 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 			echo wpautop( $instance['text'] ); // We run KSES on update
 
 			if ( ! empty( $instance['id'] ) ) : ?>
-			<form id="subscribe" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo esc_js( $instance['id'] ); ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-				<input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="email" />
+			<form id="subscribe" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo esc_js( $instance['id'] ); ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" name="<?php echo esc_attr( $instance['title'] ); ?>">
+				<label for="subbox" class="screenread"><?php echo esc_attr( $instance['input_text'] ); ?></label><input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="email" />
 				<input type="hidden" name="uri" value="<?php echo esc_attr( $instance['id'] ); ?>" />
 				<input type="hidden" name="loc" value="<?php echo esc_attr( get_locale() ); ?>" />
 				<input type="submit" value="<?php echo esc_attr( $instance['button_text'] ); ?>" id="subbutton" />
 			</form>
 			<?php elseif ( ! empty( $instance['action'] ) ) : ?>
-			<form id="subscribe" action="<?php echo esc_attr( $instance['action'] ); ?>" method="post" <?php if ($instance['open_same_window'] == 0 ) : ?> target="_blank"<?php endif; ?> onsubmit="if ( subbox1.value == '<?php echo esc_js( $instance['fname_text'] ); ?>') { subbox1.value = ''; } if ( subbox2.value == '<?php echo esc_js( $instance['lname_text'] ); ?>') { subbox2.value = ''; }">
-				<?php if ( ! empty($instance['fname-field'] ) ) : ?><input type="text" id="subbox1" class="enews-subbox" value="<?php echo esc_attr( $instance['fname_text'] ); ?>" onfocus="if ( this.value == '<?php echo esc_js( $instance['fname_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['fname_text'] ); ?>'; }" name="<?php echo esc_attr( $instance['fname-field'] ); ?>" /><?php endif ?>
-				<?php if ( ! empty($instance['lname-field'] ) ) : ?><input type="text" id="subbox2" class="enews-subbox" value="<?php echo esc_attr( $instance['lname_text'] ); ?>" onfocus="if ( this.value == '<?php echo esc_js( $instance['lname_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['lname_text'] ); ?>'; }" name="<?php echo esc_attr( $instance['lname-field'] ); ?>" /><?php endif ?>
-				<input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="<?php echo esc_js( $instance['email-field'] ); ?>" />
+			<form id="subscribe" action="<?php echo esc_attr( $instance['action'] ); ?>" method="post" <?php if ($instance['open_same_window'] == 0 ) : ?> target="_blank"<?php endif; ?> onsubmit="if ( subbox1.value == '<?php echo esc_js( $instance['fname_text'] ); ?>') { subbox1.value = ''; } if ( subbox2.value == '<?php echo esc_js( $instance['lname_text'] ); ?>') { subbox2.value = ''; }" name="<?php echo esc_attr( $instance['title'] ); ?>">
+				<?php if ( ! empty($instance['fname-field'] ) ) : ?><label for="subbox1" class="screenread"><?php echo esc_attr( $instance['fname_text'] ); ?></label><input type="text" id="subbox1" class="enews-subbox" value="<?php echo esc_attr( $instance['fname_text'] ); ?>" onfocus="if ( this.value == '<?php echo esc_js( $instance['fname_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['fname_text'] ); ?>'; }" name="<?php echo esc_attr( $instance['fname-field'] ); ?>" /><?php endif ?>
+				<?php if ( ! empty($instance['lname-field'] ) ) : ?><label for="subbox2" class="screenread"><?php echo esc_attr( $instance['lname_text'] ); ?></label><input type="text" id="subbox2" class="enews-subbox" value="<?php echo esc_attr( $instance['lname_text'] ); ?>" onfocus="if ( this.value == '<?php echo esc_js( $instance['lname_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['lname_text'] ); ?>'; }" name="<?php echo esc_attr( $instance['lname-field'] ); ?>" /><?php endif ?>
+				<label for="subbox" class="screenread"><?php echo esc_attr( $instance['input_text'] ); ?></label><input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="<?php echo esc_js( $instance['email-field'] ); ?>" />
 				<?php echo $instance['hidden_fields']; ?>
 				<input type="submit" value="<?php echo esc_attr( $instance['button_text'] ); ?>" id="subbutton" />
 			</form>
 			<?php endif;
+			echo wpautop( $instance['after_text'] ); // We run KSES on update
 
 		echo '</div>' . $after_widget;
 	}
@@ -120,6 +124,7 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 		$new_instance['title']         = strip_tags( $new_instance['title'] );
 		$new_instance['text']          = wp_kses_post( $new_instance['text']);
 		$new_instance['hidden_fields'] = strip_tags( $new_instance['hidden_fields'], "<input>, <div>, <label>" );
+		$new_instance['after_text']    = wp_kses_post( $new_instance['after_text']);
 		return $new_instance;
 	}
 
@@ -140,8 +145,12 @@ class BJGK_Genesis_eNews_Extended extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php _e( 'Text To Show', 'genesis-enews-extended' ); ?>:</label><br />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php _e( 'Text To Show Before Form', 'genesis-enews-extended' ); ?>:</label><br />
 			<textarea id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" class="widefat" rows="6" cols="4"><?php echo htmlspecialchars( $instance['text'] ); ?></textarea>
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'after_text' ) ); ?>"><?php _e( 'Text To Show After Form', 'genesis-enews-extended' ); ?>:</label><br />
+			<textarea id="<?php echo esc_attr( $this->get_field_id( 'after_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'after_text' ) ); ?>" class="widefat" rows="6" cols="4"><?php echo htmlspecialchars( $instance['after_text'] ); ?></textarea>
 		</p>
 		<hr style="background: #ccc; border: 0; height: 1px; margin: 20px 0;">
 		<p>
