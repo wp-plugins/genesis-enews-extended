@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Genesis eNews Extended v1.1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-30 09:30-0600\n"
+"PO-Revision-Date: 2013-03-30 09:42-0600\n"
+"Last-Translator: Brandon Kraft <public@brandonkraft.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:53
+#, fuzzy
+msgid "Displays subscribe form"
+msgstr "Affiche le formulaire d'abonnement"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:56
+#, fuzzy
+msgid "Genesis - eNews Extended"
+msgstr "Genesis - eNews Extended"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:143
+msgid "Title"
+msgstr "Titre"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:148
+#, fuzzy
+msgid "Text To Show Before Form"
+msgstr "Texte à afficher"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:152
+#, fuzzy
+msgid "Text To Show After Form"
+msgstr "Texte à afficher"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:157
+msgid "Google/Feedburner ID"
+msgstr "Identifiant Google/Feedburner"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:159
+msgid ""
+"Entering your Feedburner ID here will deactivate the custom options below."
+msgstr ""
+"Si vous entrez votre ID Feedburner ici, cela aura pour effet de désactiver "
+"les paramètres avancés ci-dessous."
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:163
+#, fuzzy
+msgid "Form Action"
+msgstr "Action du formulaire"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:168
+msgid "E-Mail Field"
+msgstr "Champ courriel"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:173
+msgid "First Name Field"
+msgstr "Champ Prénom"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:178
+msgid "Last Name Field"
+msgstr "Champ Nom de Famille"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:183
+msgid "Hidden Fields"
+msgstr "Champs cachés"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:185
+msgid "Not all services use hidden fields."
+msgstr "Tous les services ne font pas usage des champs cachés"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:190
+msgid "Open confirmation page in same window?"
+msgstr "Afficher la page de confirmation dans la même fenêtre ?"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:194
+msgid "First Name..."
+msgstr "Prénom..."
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:195
+#, fuzzy
+msgid "First Name Input Text"
+msgstr "Champ texte du prénom"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:199
+msgid "Last Name..."
+msgstr "Nom de famille..."
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:200
+#, fuzzy
+msgid "Last Name Input Text"
+msgstr "Champ text du nom de famille"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:204
+msgid "Enter your email address..."
+msgstr "Entrez votre adresse email..."
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:205
+#, fuzzy
+msgid "E-Mail Input Text"
+msgstr "Champ texte pour l'Email"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:210
+msgid "Go"
+msgstr "Envoyer"
+
+# @ genesis-enews-extended
+#: ../class-bjgk-genesis-enews-extended.php:211
+msgid "Button Text"
+msgstr "Texte du bouton"

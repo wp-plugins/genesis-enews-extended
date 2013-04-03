@@ -1,0 +1,114 @@
+# Translation of Genesis 1.8 in Polish
+# This file is distributed under the same license as the Genesis 1.8 package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Genesis eNews Extended\n"
+"POT-Creation-Date: 2013-03-30 09:30-0600\n"
+"PO-Revision-Date: 2013-03-30 09:42-0600\n"
+"Last-Translator: Brandon Kraft <public@brandonkraft.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../class-bjgk-genesis-enews-extended.php:53
+msgid "Displays subscribe form"
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:56
+#, fuzzy
+msgid "Genesis - eNews Extended"
+msgstr "Genesis - eNews'y i aktualizacje"
+
+#: ../class-bjgk-genesis-enews-extended.php:143
+msgid "Title"
+msgstr "Tytuł"
+
+#: ../class-bjgk-genesis-enews-extended.php:148
+#, fuzzy
+msgid "Text To Show Before Form"
+msgstr "Tekst do pokazania"
+
+#: ../class-bjgk-genesis-enews-extended.php:152
+#, fuzzy
+msgid "Text To Show After Form"
+msgstr "Tekst do pokazania"
+
+#: ../class-bjgk-genesis-enews-extended.php:157
+msgid "Google/Feedburner ID"
+msgstr "Google/Feedburner ID"
+
+#: ../class-bjgk-genesis-enews-extended.php:159
+msgid ""
+"Entering your Feedburner ID here will deactivate the custom options below."
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:163
+#, fuzzy
+msgid "Form Action"
+msgstr "Informacja"
+
+#: ../class-bjgk-genesis-enews-extended.php:168
+msgid "E-Mail Field"
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:173
+msgid "First Name Field"
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:178
+msgid "Last Name Field"
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:183
+msgid "Hidden Fields"
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:185
+msgid "Not all services use hidden fields."
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:190
+msgid "Open confirmation page in same window?"
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:194
+msgid "First Name..."
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:195
+#, fuzzy
+msgid "First Name Input Text"
+msgstr "Wprowadzanie tekstu"
+
+#: ../class-bjgk-genesis-enews-extended.php:199
+msgid "Last Name..."
+msgstr ""
+
+#: ../class-bjgk-genesis-enews-extended.php:200
+#, fuzzy
+msgid "Last Name Input Text"
+msgstr "Wprowadzanie tekstu"
+
+#: ../class-bjgk-genesis-enews-extended.php:204
+msgid "Enter your email address..."
+msgstr "Wpisz swój adres e-mail ..."
+
+#: ../class-bjgk-genesis-enews-extended.php:205
+#, fuzzy
+msgid "E-Mail Input Text"
+msgstr "Wprowadzanie tekstu"
+
+#: ../class-bjgk-genesis-enews-extended.php:210
+msgid "Go"
+msgstr "Idź"
+
+#: ../class-bjgk-genesis-enews-extended.php:211
+msgid "Button Text"
+msgstr "Tekst przycisku"
