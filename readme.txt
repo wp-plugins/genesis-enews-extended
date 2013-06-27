@@ -55,6 +55,7 @@ Questions can be asked at the [WordPress.org Support Forum](http://wordpress.org
 * Adds option for HTML5-enhanced forms.
 * Adds error checking for including http://feeds.feedburner.com in the Feedburner ID field.
 * Minor code improvements
+* Listing of issues [resolved in this version](https://github.com/kraftbj/genesis-enews-extended/issues?milestone=8&state=closed).
 
 = 1.2.0 =
 * Adds text space after form. Perfect for a link to a Privacy Statement!
@@ -120,6 +121,7 @@ A special thanks to all who have contributed to Genesis eNews Extended.
 * Dorian Speed
 * Paul Meyers
 * Joel Runyon
+* Jennifer Jinright
 * [Maybe You?](http://www.brandonkraft.com/donate/)
 
 = Code Contributions =
